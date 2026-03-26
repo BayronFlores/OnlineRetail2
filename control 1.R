@@ -7,7 +7,7 @@ library(readr)
 # ----------------
 
 # a) Cargar datos
-datos <- read_csv2("C:/Users/BAYRON/Downloads/OnlineRetail2/OnlineRetail2.csv")
+datos <- read_csv2("OnlineRetail2.csv")
 
 # b) Estructura del dataset
 str(datos)
