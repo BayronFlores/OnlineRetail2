@@ -7,7 +7,7 @@ library(readr)
 # ----------------
 
 # a) Cargar datos
-datos <- read_csv2("OnlineRetail2.csv")
+datos <- read_csv2("C:/Users/BAYRON/Downloads/OnlineRetail2/OnlineRetail2.csv")
 
 # b) Estructura del dataset
 str(datos)
@@ -23,6 +23,23 @@ head(datos, 8)
 # ----------------
 datos <- datos %>%
   filter(Quantity > 0, UnitPrice > 0)
+
+
+# ----------------
+# Pregunta 2
+# ----------------
+
+# Frecuencia de compra promedio 
+purchase_frequency <- n_distinct(datos$InvoiceNo) / n_distinct(datos$CustomerID)
+print(purchase_frequency)
+
+# Tamaño promedio del carrito 
+basket_size <- sum(datos$Quantity) / n_distinct(datos$InvoiceNo)
+print(basket_size)
+
+# Tasa de diversidad de productos
+product_diversity <- n_distinct(datos$StockCode) / nrow(df)
+print(product_diversity)
 
 # ----------------
 # Pregunta 3
@@ -43,7 +60,6 @@ print(total_registros)
 # d) Total de ventas reales (facturas únicas)
 total_ventas <- n_distinct(datos$InvoiceNo)
 print(total_ventas)
-
 
 
 # f_i) Usando registros
